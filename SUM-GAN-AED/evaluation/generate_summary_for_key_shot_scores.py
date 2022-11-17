@@ -11,9 +11,6 @@ def generate_summary_for_key_shot_scores(all_shot_bound, all_scores, all_nframes
         n_frames = all_nframes[video_index]
         positions = all_positions[video_index]
 
-        print((positions),len(positions))
-        print('ggg',len(frame_init_scores))
-        print('frame_init_scores',frame_init_scores)
         
 
         # Compute the importance scores for the initial *frame sequence* (not the subsampled one) 
@@ -34,9 +31,9 @@ def generate_summary_for_key_shot_scores(all_shot_bound, all_scores, all_nframes
         for i in frame_scores:
           if math.isnan(i):
             coutn+=1
-        print(coutn,'HAHA')
+        
 
-        print('frame scores',len(frame_scores),frame_scores)
+        
     	# Compute shot-level importance scores by taking the average importance scores of all frames in the shot
         shot_imp_scores = []
         shot_lengths = []
@@ -46,9 +43,7 @@ def generate_summary_for_key_shot_scores(all_shot_bound, all_scores, all_nframes
             
             shot_lengths.append(shot[1]-shot[0]+1)
             shot_imp_scores.append((frame_scores[shot[0]:shot[1]+1].mean()).item())
-        print('SUM',sum(frame_init_scores))
-        
-        print(shot_imp_scores)
+       
         
         
 	# Select the best shots using the knapsack implementation
@@ -60,12 +55,10 @@ def generate_summary_for_key_shot_scores(all_shot_bound, all_scores, all_nframes
         summary = np.zeros(shot[1]+1, dtype=np.int8)
         for shot in selected:
             summary[shot_bound[shot][0]:shot_bound[shot][1]+1] = 1
-        print('summary,', summary,sum(summary))
+        
         
         all_summaries.append(summary)
     
-    #print(frame_scores)
-    #print(frame_scores[0])
-
+  
     return all_summaries
 
