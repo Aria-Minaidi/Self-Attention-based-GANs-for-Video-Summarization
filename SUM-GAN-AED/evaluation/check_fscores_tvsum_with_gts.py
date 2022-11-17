@@ -5,11 +5,11 @@ import h5py
 from generate_summary import generate_summary
 from evaluation_metrics import evaluate_summary
 
-path = '/content/drive/MyDrive/SUM-GAN-AED/exp1/tvsum/results/split4' # path to the json files with the computed importance scores for each epoch
+path = '../SUM-GAN-AED/exp1/tvsum/results/split4' # path to the json files with the computed importance scores for each epoch
 results = listdir(path)
 results=results[:-1]
 results.sort(key=lambda video: int(video[6:-5]))
-PATH_TVSum = '/content/drive/MyDrive/Adversarial_Video_Summary-master/data/TVSum/eccv16_dataset_tvsum_google_pool5.h5'
+PATH_TVSum = '../data/TVSum/eccv16_dataset_tvsum_google_pool5.h5'
 eval_method = 'avg' # the proposed evaluation method for TVSum videos
 
 # for each epoch, read the results' file and compute the f_score
