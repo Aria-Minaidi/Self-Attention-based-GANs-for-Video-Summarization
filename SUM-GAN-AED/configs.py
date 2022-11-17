@@ -5,14 +5,10 @@ from pathlib import Path
 import pprint
 
 project_dir = Path(__file__).resolve().parent
-dataset_dir = Path('/content/drive/MyDrive/A_Final_COGN.h5')
-#dataset_dir = Path('/content/drive/MyDrive/Adversarial_Video_Summary-master/data/TVSum/eccv16_dataset_tvsum_google_pool5.h5')
-#dataset_dir = Path('/content/drive/MyDrive/Adversarial_Video_Summary-master/data/SumMe/eccv16_dataset_summe_google_pool5.h5')
-#dataset_dir = Path('/content/drive/MyDrive/A_Whole_cogn.h5')
-#dataset_dir = Path('/content/drive/MyDrive/COGNIMUSE_2fps2.h5')
-#video_list = ['360airballoon', '360parade', '360rowing', '360scuba', '360wedding']
-save_dir = Path('/content/drive/MyDrive/SUM-GAN-AED/exp1')
-#score_dir = Path('/content/drive/MyDrive/MSc/Adversarial_Video_Summary-master/results_scores')
+dataset_dir = Path('../COGN.h5')
+
+save_dir = Path('../SUM-GAN-AED/exp1')
+#score_dir = Path('../results_scores')
 
 
 def str2bool(v):
@@ -71,7 +67,7 @@ def get_config(parse=True, **optional_kwargs):
     parser.add_argument('--video_type', type=str, default='cogn')
 
     # Model
-    parser.add_argument('--input_size', type=int, default=1024) #edw exei allo
+    parser.add_argument('--input_size', type=int, default=1024) 
     parser.add_argument('--hidden_size', type=int, default=500)
     parser.add_argument('--num_layers', type=int, default=2)
     parser.add_argument('--summary_rate', type=float, default=0.3)
