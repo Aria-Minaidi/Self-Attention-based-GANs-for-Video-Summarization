@@ -5,12 +5,12 @@ import h5py
 from generate_summary import generate_summary
 from evaluation_metrics import evaluate_summary
 
-path = '/content/drive/MyDrive/SUM-GAN-AED/exp1/summe/results/split1' # path to the json files with the computed importance scores for each epoch
+path = '../SUM-GAN-AED/exp1/summe/results/split1' # path to the json files with the computed importance scores for each epoch
 results = listdir(path)
 results=results[0:-1]
 print(results)
 results.sort(key=lambda video: int(video[6:-5]))
-PATH_SumMe = '/content/drive/MyDrive/Adversarial_Video_Summary-master/data/SumMe/eccv16_dataset_summe_google_pool5.h5'
+PATH_SumMe = '../data/SumMe/eccv16_dataset_summe_google_pool5.h5'
 eval_method = 'max' # the proposed evaluation method for SumMe videos
 
 # for each epoch, read the results' file and compute the f_score
