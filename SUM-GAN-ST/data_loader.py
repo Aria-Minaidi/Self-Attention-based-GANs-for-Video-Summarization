@@ -10,10 +10,10 @@ class VideoData(Dataset):
     def __init__(self, mode, split_index):
         self.mode = mode
         self.name = 'cogn'
-        self.datasets = ['/content/drive/MyDrive/Adversarial_Video_Summary-master/data/SumMe/eccv16_dataset_summe_google_pool5.h5',
-                         '/content/drive/MyDrive/Adversarial_Video_Summary-master/data/TVSum/eccv16_dataset_tvsum_google_pool5.h5',
-                         '/content/drive/MyDrive/A_Final_COGN.h5']
-        self.splits_filename = ['/content/drive/MyDrive/Adversarial_Video_Summary-master/data/splits/' + self.name + '_splits.json']
+        self.datasets = ['../data/SumMe/eccv16_dataset_summe_google_pool5.h5',
+                         '../data/TVSum/eccv16_dataset_tvsum_google_pool5.h5',
+                         '../COGN.h5']
+        self.splits_filename = ['../data/splits/' + self.name + '_splits.json']
         self.splits = []
         self.split_index = split_index # it represents the current split (varies from 0 to 4) 
         temp = {}
@@ -44,7 +44,7 @@ class VideoData(Dataset):
         #print('VIDEO',video_name)
         #print(self.video_data['video_1/features'])
         frame_features = torch.Tensor(np.array(self.video_data[video_name + '/features']))
-        print('FRAME FEAT',len(frame_features))
+        
         if self.mode == 'test':
             return frame_features, video_name
         else:
