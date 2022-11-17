@@ -1,5 +1,13 @@
 # Self-Attention-based-GANs-for-Video-Summarization
 PyTorch implementation of Self-Attention based models, that are built upon SUM-GAN [1] for Unsupervised Video Summarization. The models were trained and tested on the datasets SumMe, TVSum and COGNIMUSE, without any prior ground-truth data. 
+| Model | Architecture |
+| --- | --- |
+| SUM-GAN-AED | Self-attention as the frame selector mechanism |
+| SUM-GAN-STD | Transformer as the encoder | 
+| SUM-GAN-ST |  Transformer as the encoder & decoder | 
+| SUM-GAN-STSED | Transformer Sequence Encoder as the encoder |
+| SUM-GAN-SAT | Self-attention as the frame selector and transformer as the encoder & decoder |
+
 
 ## Training
 
